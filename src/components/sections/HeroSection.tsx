@@ -7,13 +7,24 @@ export function HeroSection() {
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       {/* Background Media */}
       <div className="absolute inset-0 z-0">
+        {/* Desktop Image */}
         <Image
           src="/images/projects/he.png" // Real KDM project image
           alt="KDM Construction Project"
           fill
           priority
           sizes="100vw"
-          className="object-cover scale-[1.02] animate-ken-burns"
+          className="object-cover scale-[1.02] animate-ken-burns hidden md:block"
+        />
+        
+        {/* Mobile Image */}
+        <Image
+          src="/images/projects/he mobile.png" // Mobile specific image
+          alt="KDM Construction Project"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover scale-[1.02] animate-ken-burns block md:hidden"
         />
         {/* Fine dark overlay for text readability but still feeling bright/premium */}
         <div className="absolute inset-0 bg-black/30" />
@@ -30,7 +41,7 @@ export function HeroSection() {
             <span className="font-medium">Modern World.</span>
           </h1>
           <p className="text-lg md:text-xl font-light max-w-2xl text-white/90 mb-12 leading-relaxed">
-            We design minimalist, sustainable, and powerful spaces that elevate human experience and endure through generations.
+            Building spaces for generations to come
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6">

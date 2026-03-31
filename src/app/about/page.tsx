@@ -32,7 +32,7 @@ export default function AboutPage() {
         {/* Header */}
         <AnimatedSectionWrapper className="pt-0 pb-16 md:pb-24">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-8 max-w-4xl leading-tight">
-            We are a collective of dreamers and builders.
+            We are a collective of dreamers and builders, into building and real estate for the past 18+ years.
           </h1>
           <div className="w-full relative aspect-video bg-muted mb-16">
             <Image

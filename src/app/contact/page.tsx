@@ -1,11 +1,28 @@
 "use client";
 
-import { useActionState } from "react";
+import { useState, FormEvent } from "react";
 import { AnimatedSectionWrapper } from "@/components/layout/AnimatedSectionWrapper";
-import { submitContactForm } from "./actions";
 
 export default function ContactPage() {
-  const [state, formAction, isPending] = useActionState(submitContactForm, null);
+  const [isPending, setIsPending] = useState(false);
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsPending(true);
+    
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+    
+    const whatsappNumber = "919035474472";
+    const text = `Hello KDM Construction,\n\nMy name is ${name} (${email}).\n\nProject Details:\n${message}`;
+    
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    
+    window.open(whatsappUrl, "_blank");
+    setIsPending(false);
+  };
 
   return (
     <div className="pt-32 pb-20 w-full min-h-screen">
@@ -27,17 +44,7 @@ export default function ContactPage() {
             
             {/* Form */}
             <div className="order-2 lg:order-1">
-              <form action={formAction} className="flex flex-col gap-8">
-                {state?.success && (
-                  <div className="p-4 bg-foreground text-background text-sm tracking-wide font-medium">
-                    {state.message}
-                  </div>
-                )}
-                {state?.success === false && (
-                  <div className="p-4 border border-destructive text-destructive text-sm tracking-wide">
-                    {state.message}
-                  </div>
-                )}
+              <form onSubmit={handleSubmit} className="flex flex-col gap-8">
                 
                 <div className="flex flex-col gap-2">
                   <label htmlFor="name" className="text-xs uppercase tracking-widest text-muted-foreground mb-1">
