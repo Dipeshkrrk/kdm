@@ -100,8 +100,10 @@ export const PROJECTS: Project[] = [
     location: "Bengaluru, Karnataka",
     client: "Private",
     area: "3,500 sq ft",
-    coverImage: "/images/projects/tejas nilaya/IMG_2807.webp",
+    coverImage: "/images/projects/tejas nilaya/Gemini_Generated_Image_p5eoswp5eoswp5eo.png",
     gallery: [
+      "/images/projects/tejas nilaya/Gemini_Generated_Image_bmln3sbmln3sbmln.png",
+      "/images/projects/tejas nilaya/Gemini_Generated_Image_p5eoswp5eoswp5eo.png",
       "/images/projects/tejas nilaya/IMG_2807.webp",
       "/images/projects/tejas nilaya/IMG_2808.webp",
       "/images/projects/tejas nilaya/IMG_2809.webp",

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Instagram, Linkedin, Twitter, LucideIcon } from "lucide-react";
+import { ArrowUpRight, Instagram, LucideIcon } from "lucide-react";
 
 type FooterLink = {
   name: string;
@@ -22,19 +22,9 @@ const FOOTER_LINKS: FooterGroup[] = [
     ],
   },
   {
-    title: "Services",
-    links: [
-      { name: "Architecture", href: "/services" },
-      { name: "Interior Design", href: "/services" },
-      { name: "Master Planning", href: "/services" },
-    ],
-  },
-  {
     title: "Social",
     links: [
       { name: "Instagram", href: "#", icon: Instagram },
-      { name: "LinkedIn", href: "#", icon: Linkedin },
-      { name: "Twitter", href: "#", icon: Twitter },
     ],
   },
 ];

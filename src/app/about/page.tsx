@@ -53,7 +53,7 @@ export default function AboutPage() {
             </div>
             <div className="lg:col-span-8 flex flex-col gap-8 text-lg md:text-xl font-light leading-relaxed text-foreground/90">
               <p>
-                At KDM Construction, we believe that a building is more than just a structure; it's a foundation for dreams and a testament to quality. We handle every aspect of construction with precision, ensuring that from personal homes to industrial projects, excellence is the standard.
+                At KDM Construction, we believe that a building is more than just a structure; it&apos;s a foundation for dreams and a testament to quality. We handle every aspect of construction with precision, ensuring that from personal homes to industrial projects, excellence is the standard.
               </p>
               <p>
                 Our process is built on transparency, reliability, and on-time delivery. We manage complex projects through a team of skilled professionals dedicated to creating lasting results that exceed client expectations.

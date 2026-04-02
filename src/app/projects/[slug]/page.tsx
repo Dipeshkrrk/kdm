@@ -10,8 +10,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const project = PROJECTS.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const project = PROJECTS.find((p) => p.slug === resolvedParams.slug);
   
   if (!project) {
     return { title: 'Project Not Found | KDM Construction' };
@@ -23,8 +24,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default function ProjectDetail({ params }: { params: { slug: string } }) {
-  const project = PROJECTS.find((p) => p.slug === params.slug);
+export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
+  const project = PROJECTS.find((p) => p.slug === resolvedParams.slug);
 
   if (!project) {
     notFound();
@@ -86,25 +88,96 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
           </div>
         </AnimatedSectionWrapper>
 
-        {/* Gallery */}
+        {/* Detailed Placeholder Sections */}
         <AnimatedSectionWrapper className="py-20 border-t border-border">
-          <h2 className="text-2xl font-light mb-12">Project Gallery</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {project.gallery.map((img, idx) => (
-              <div 
-                key={idx} 
-                className={`relative bg-muted ${idx % 3 === 0 ? "md:col-span-2 aspect-[21/9]" : "aspect-[4/5]"}`}
-              >
+          {project.gallery[0] && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-32">
+              <div>
+                <h2 className="text-3xl font-light mb-6">Concept & Approach</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </div>
+              <div className="relative aspect-[4/5] lg:aspect-square bg-muted w-full">
                 <Image
-                  src={img}
-                  alt={`${project.title} gallery image ${idx + 1}`}
+                  src={project.gallery[0]}
+                  alt={`${project.title} Concept`}
                   fill
                   className="object-cover"
                 />
               </div>
-            ))}
-          </div>
+            </div>
+          )}
+
+          {project.gallery[1] && (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-32">
+              <div className="order-2 lg:order-1 relative aspect-[16/9] lg:aspect-[4/3] bg-muted w-full">
+                <Image
+                  src={project.gallery[1]}
+                  alt={`${project.title} Design`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="order-1 lg:order-2">
+                <h2 className="text-3xl font-light mb-6">Design Process</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+                </p>
+                <ul className="list-disc pl-5 text-lg text-muted-foreground leading-relaxed space-y-2">
+                  <li>Innovative spatial planning and flow mapping</li>
+                  <li>Sustainable material selection and sourcing</li>
+                  <li>Integration of natural light and ventilation</li>
+                  <li>Custom millwork and bespoke interior elements</li>
+                </ul>
+              </div>
+            </div>
+          )}
+
+          {project.gallery[2] && (
+            <div className="mb-32">
+              <div className="relative aspect-[21/9] bg-muted w-full mb-12">
+                <Image
+                  src={project.gallery[2]}
+                  alt={`${project.title} Execution`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="max-w-3xl mx-auto text-center">
+                <h2 className="text-3xl font-light mb-6">Execution & Details</h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+                </p>
+              </div>
+            </div>
+          )}
         </AnimatedSectionWrapper>
+
+        {/* Remaining Gallery */}
+        {project.gallery.length > 3 && (
+          <AnimatedSectionWrapper className="py-20 border-t border-border">
+            <h2 className="text-2xl font-light mb-12">Additional Views</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              {project.gallery.slice(3).map((img, idx) => (
+                <div 
+                  key={idx} 
+                  className={`relative bg-muted ${idx % 3 === 0 ? "md:col-span-2 aspect-[21/9]" : "aspect-[4/5]"}`}
+                >
+                  <Image
+                    src={img}
+                    alt={`${project.title} additional image ${idx + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </AnimatedSectionWrapper>
+        )}
       </div>
     </div>
   );

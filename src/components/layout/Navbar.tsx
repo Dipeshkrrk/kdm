@@ -45,10 +45,7 @@ export function Navbar() {
       <header className="fixed top-0 inset-x-0 z-50 bg-transparent py-6">
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Image src="/logo.png" alt="KDM Logo" width={40} height={40} className="object-contain" />
-            <div className="text-xl md:text-2xl font-bold tracking-tight uppercase">
-              KDM<span className="font-light text-muted-foreground">Construction</span>
-            </div>
+            <Image src="/logo.png" alt="KDM Logo" width={200} height={60} priority className="object-contain w-[84px] md:w-[108px] h-auto" />
           </div>
         </div>
       </header>
@@ -70,10 +67,7 @@ export function Navbar() {
             href="/"
             className="flex items-center gap-2 group"
           >
-            <Image src="/logo.png" alt="KDM Logo" width={40} height={40} className="object-contain" />
-            <span className="text-xl md:text-2xl font-bold tracking-tight uppercase">
-              KDM<span className="font-light text-muted-foreground transition-colors group-hover:text-foreground">Construction</span>
-            </span>
+            <Image src="/logo.png" alt="KDM Logo" width={200} height={60} priority className="object-contain w-[84px] md:w-[108px] h-auto" />
           </Link>
 
           {/* Desktop Nav */}
@@ -136,10 +130,7 @@ export function Navbar() {
           >
             <div className="flex items-center justify-between mb-12">
               <Link href="/" className="flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
-                <Image src="/logo.png" alt="KDM Logo" width={32} height={32} className="object-contain" />
-                <span className="text-xl font-bold tracking-tight uppercase">
-                    KDM<span className="font-light text-muted-foreground">Construction</span>
-                </span>
+                <Image src="/logo.png" alt="KDM Logo" width={160} height={50} className="object-contain w-[72px] h-auto" />
               </Link>
               <button
                 onClick={() => setMobileMenuOpen(false)}
