@@ -2,7 +2,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { AnimatedSectionWrapper } from "@/components/layout/AnimatedSectionWrapper";
 import { ProjectCard } from "@/components/sections/ProjectCard";
 import { ServiceCard } from "@/components/sections/ServiceCard";
-import { TestimonialCard } from "@/components/sections/TestimonialCard";
+import { TestimonialsCarousel } from "@/components/sections/TestimonialsCarousel";
 import { PROJECTS, SERVICES, TESTIMONIALS } from "@/utils/dummyData";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -95,14 +95,10 @@ export default function Home() {
       </AnimatedSectionWrapper>
 
       {/* Testimonials */}
-      <AnimatedSectionWrapper delay={0.1} className="py-32">
+      <AnimatedSectionWrapper delay={0.1} className="py-8 md:py-16">
         <div className="container mx-auto px-6 md:px-12">
           <h2 className="text-3xl md:text-5xl font-light text-center mb-16">Client Perspectives</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {TESTIMONIALS.map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
-          </div>
+          <TestimonialsCarousel testimonials={TESTIMONIALS} />
         </div>
       </AnimatedSectionWrapper>
 

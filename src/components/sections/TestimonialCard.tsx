@@ -9,11 +9,11 @@ interface TestimonialCardProps {
 
 export function TestimonialCard({ testimonial, className }: TestimonialCardProps) {
   return (
-    <div className={cn("flex flex-col h-full bg-muted/30 p-8 md:p-12 relative", className)}>
-      <Quote className="w-10 h-10 text-muted-foreground/20 absolute top-8 right-8" />
+    <div className={cn("flex flex-col h-full bg-muted/30 p-6 md:p-10 relative", className)}>
+      <Quote className="w-8 h-8 md:w-10 md:h-10 text-muted-foreground/20 absolute top-6 right-6 md:top-8 md:right-8" />
       
-      <div className="flex-1 flex items-center mb-8 pt-4">
-        <p className="text-lg md:text-xl font-light leading-relaxed text-foreground/90">
+      <div className="flex-1 flex items-center mb-6 pt-4">
+        <p className="text-base md:text-lg font-light leading-relaxed text-foreground/90">
           &quot;{testimonial.content}&quot;
         </p>
       </div>

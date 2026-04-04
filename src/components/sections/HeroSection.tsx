@@ -19,7 +19,7 @@ export function HeroSection() {
         
         {/* Mobile Image */}
         <Image
-          src="/images/projects/he mobile.png" // Mobile specific image
+          src="/images/projects/tejas nilaya/Gemini_Generated_Image_p5eoswp5eoswp5eo.png" // Mobile specific image (Tejas Nilaya)
           alt="KDM Construction Project"
           fill
           priority
@@ -64,7 +64,7 @@ export function HeroSection() {
       
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-4 animate-fade-in opacity-80">
-        <span className="text-xs uppercase tracking-[0.3em] text-white">Scroll</span>
+        <span className="hidden md:block text-xs uppercase tracking-[0.3em] text-white">Scroll</span>
         <div className="w-[1px] h-16 bg-white/30 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-white animate-scroll-down" />
         </div>
